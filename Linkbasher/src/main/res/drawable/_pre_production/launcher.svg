@@ -16,7 +16,10 @@
    version="1.1"
    inkscape:version="0.48.4 r9939"
    enable-background="new"
-   sodipodi:docname="New document 1">
+   sodipodi:docname="launcher.svg"
+   inkscape:export-filename="/home/dave/git/Linkbasher/Linkbasher/src/main/res/drawable/_pre_production/launcher.png"
+   inkscape:export-xdpi="960"
+   inkscape:export-ydpi="960">
   <defs
      id="defs4">
     <linearGradient
@@ -184,9 +187,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="15.839192"
-     inkscape:cx="11.749919"
-     inkscape:cy="23.69962"
+     inkscape:zoom="1"
+     inkscape:cx="24"
+     inkscape:cy="24"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
      showgrid="true"
