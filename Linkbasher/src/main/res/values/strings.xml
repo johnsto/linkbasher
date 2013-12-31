@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Linkbasher</string>
+
+    <string name="title_activity_main">Linkbasher</string>
+    <string name="title_activity_resolver">Linkbasher</string>
+
+    <string name="toast_resolving">Resolving link...</string>
+    <string name="toast_got_404">Got "404 - File Not Found" resolving link! You might want to open it in your browser.</string>
+    <string name="toast_got_non_30x">There was an error resolving the shortened URL. You might want to open it in your browser.</string>
+    <string name="toast_misc_error">There was an error resolving the shortened URL. You might want to open it in your browser.</string>
+    <string name="toast_max_redirects">Exceeded maximum number of redirects</string>
+    <string name="toast_redirect_loop">Possible redirect loop detected</string>
+
+    <string name="main_description">Linkbasher saves you time by resolving shortened links without opening your browser.</string>
+
+    <string name="domains_header">Supported domains</string>
+    <string name="domains_body">bit.ly, goo.gl, ow.ly, t.co, tinyurl.com, wp.me</string>
+
+    <string name="howto_header">How to use</string>
+    <string name="howto_body">The next time you tap on a shortened link and are prompted with a list of apps, choose \"Linkbasher\" then hit \"Always\". Linkbasher will do the rest! If for any reason Linkbasher can\'t open the link, you\'ll be prompted again to choose a different app (such as your browser)</string>
+
+    <string name="count_header">Linkbasher has bashed</string>
+    <string name="count_footer">links for you</string>
+</resources>
