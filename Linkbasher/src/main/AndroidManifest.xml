@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="uk.co.johnsto.linkbasher" >
+    package="uk.co.johnsto.linkbasher"
+    android:versionCode="100"
+    android:versionName="1.0.0">
 
     <uses-sdk android:minSdkVersion="17" />
 
@@ -28,18 +30,28 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:host="t.co" android:scheme="http" />
-                <data android:host="t.co" android:scheme="https" />
-                <data android:host="goo.gl" android:scheme="http" />
-                <data android:host="goo.gl" android:scheme="https" />
                 <data android:host="bit.ly" android:scheme="http" />
                 <data android:host="bit.ly" android:scheme="https" />
+                <data android:host="dnlchw.net" android:scheme="http" />
+                <data android:host="dnlchw.net" android:scheme="https" />
+                <data android:host="fb.me" android:scheme="http" />
+                <data android:host="fb.me" android:scheme="https" />
+                <data android:host="goo.gl" android:scheme="http" />
+                <data android:host="goo.gl" android:scheme="https" />
+                <data android:host="ift.tt" android:scheme="http" />
+                <data android:host="ift.tt" android:scheme="https" />
+                <data android:host="is.gd" android:scheme="http" />
+                <data android:host="is.gd" android:scheme="https" />
                 <data android:host="ow.ly" android:scheme="http" />
                 <data android:host="ow.ly" android:scheme="https" />
-                <data android:host="wp.me" android:scheme="http" />
-                <data android:host="wp.me" android:scheme="https" />
+                <data android:host="t.co" android:scheme="http" />
+                <data android:host="t.co" android:scheme="https" />
                 <data android:host="tinyurl.com" android:scheme="http" />
                 <data android:host="tinyurl.com" android:scheme="https" />
+                <data android:host="tmblr.co" android:scheme="http" />
+                <data android:host="tmblr.co" android:scheme="https" />
+                <data android:host="wp.me" android:scheme="http" />
+                <data android:host="wp.me" android:scheme="https" />
             </intent-filter>
         </activity>
     </application>

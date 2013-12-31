@@ -15,10 +15,17 @@
     <string name="main_description">Linkbasher saves you time by resolving shortened links without opening your browser.</string>
 
     <string name="domains_header">Supported domains</string>
-    <string name="domains_body">bit.ly, goo.gl, ow.ly, t.co, tinyurl.com, wp.me</string>
+    <string name="domains_body">bit.ly, dnlchw.net, fb.me, goo.gl, ift.tt, is.gd, ow.ly, t.co, tinyurl.com, tmblr.co, wp.me</string>
 
     <string name="howto_header">How to use</string>
-    <string name="howto_body">The next time you tap on a shortened link and are prompted with a list of apps, choose \"Linkbasher\" then hit \"Always\". Linkbasher will do the rest! If for any reason Linkbasher can\'t open the link, you\'ll be prompted again to choose a different app (such as your browser)</string>
+    <string name="howto_body">
+        The next time you tap on a shortened link and are prompted with a list of apps, choose \"Linkbasher\" then hit \"Always\". Linkbasher will do the rest!
+        (Linkbasher will prompt you to choose a different app if for any reason it can\'t resolve the given link.)
+    </string>
+
+    <string name="moreinfo_header">More info</string>
+    <string name="moreinfo_body">Linkbasher was written by David Johnston. The source code can be found on GitHub: http://github.com/johnsto/linkbasher</string>
+
 
     <string name="count_header">Linkbasher has bashed</string>
     <string name="count_footer">links for you</string>
