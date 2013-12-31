@@ -3,6 +3,8 @@ linkbasher
 
 An Android utility app that resolves shortened links faster than your browser.
 
+Available for free download on [Google Play](https://play.google.com/store/apps/details?id=uk.co.johnsto.linkbasher)
+
 Why?!
 -----
 Created out of frustration after far too many instances of clicking on a
