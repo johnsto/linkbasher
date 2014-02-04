@@ -13,6 +13,10 @@
         android:label="@string/app_name"
         android:name=".LinkbusterApplication"
         android:debuggable="false">
+        <service android:name=".ResolveService">
+
+        </service>
+
         <activity
             android:name="uk.co.johnsto.linkbasher.MainActivity"
             android:label="@string/title_activity_main" >
@@ -34,6 +38,8 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <data android:host="bbc.in" android:scheme="http" />
+                <data android:host="bbc.in" android:scheme="https" />
                 <data android:host="bit.ly" android:scheme="http" />
                 <data android:host="bit.ly" android:scheme="https" />
                 <data android:host="dnlchw.net" android:scheme="http" />
@@ -48,6 +54,8 @@
                 <data android:host="is.gd" android:scheme="https" />
                 <data android:host="ow.ly" android:scheme="http" />
                 <data android:host="ow.ly" android:scheme="https" />
+                <data android:host="su.pr" android:scheme="http" />
+                <data android:host="su.pr" android:scheme="https" />
                 <data android:host="t.co" android:scheme="http" />
                 <data android:host="t.co" android:scheme="https" />
                 <data android:host="tinyurl.com" android:scheme="http" />
