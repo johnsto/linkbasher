@@ -5,6 +5,7 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -40,14 +41,13 @@ public class ResolveService extends IntentService implements Consts {
     protected void onHandleIntent(final Intent intent) {
         // Show icon in notification area
         NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        Notification notif = new Notification.Builder(getApplicationContext())
-                //.setTicker("Resolving " + intent.getData() + "...")
-                .getNotification();
+        Notification notif = new Notification.Builder(getApplicationContext()).getNotification();
         startForeground(1, notif);
 
         handler.post(new Runnable() {
             @Override
             public void run() {
+                // always construct Toast on UI thread, else it won't appear
                 resolvingToast = Toast.makeText(
                         ResolveService.this,
                         "Resolving " + intent.getData() + "...",
@@ -67,8 +67,16 @@ public class ResolveService extends IntentService implements Consts {
                 int count = prefs.getInt(PREF_COUNT, 0);
                 prefs.edit().putInt(PREF_COUNT, count + 1).commit();
             } else {
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(ResolveService.this, R.string.toast_misc_error, Toast.LENGTH_SHORT).show();
+                    }
+                });
+
                 // Failed to resolve => pass original intent through to system picker instead
-                newIntent = new Intent(Intent.ACTION_PICK_ACTIVITY);
+                newIntent = new Intent(ResolveService.this, ResolveActivity.class);
+                newIntent.setAction(Intent.ACTION_PICK_ACTIVITY);
                 newIntent.putExtra(
                         Intent.EXTRA_INTENT,
                         new Intent(Intent.ACTION_VIEW, intent.getData())
@@ -162,7 +170,7 @@ public class ResolveService extends IntentService implements Consts {
                     }
 
                     if(statusDigit == 2) {
-                        // 2xx - probably not a redirect, so let user pick another activity
+                        // 2xx - probably at end of redirect loop so return
                         return location;
                     } else if(statusDigit == 3) {
                         // 3xx - fetch Location header and use that
@@ -184,4 +192,5 @@ public class ResolveService extends IntentService implements Consts {
             return origin;
         }
     }
+
 }
