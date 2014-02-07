@@ -109,6 +109,11 @@ public class ResolveService extends IntentService implements Consts {
             originatingUri = location;
         }
 
+        if(iteration > 5) {
+            // something's gone horribly wrong
+            return null;
+        }
+
         if(location == null) {
             return null;
         }
@@ -148,15 +153,18 @@ public class ResolveService extends IntentService implements Consts {
         protected Uri doInBackground(Uri... uris) {
             final Uri origin = uris[0];
             Uri location = origin;
+            Uri last = null;
             int redirects = 0;
             while(++redirects < 5) {
                 try {
+                    last = location;
+
                     // Fetch HEAD
                     final HttpURLConnection conn = (HttpURLConnection) new URL(location.toString()).openConnection();
                     conn.setConnectTimeout(3000);
                     conn.setReadTimeout(3000);
+                    conn.setInstanceFollowRedirects(true);
 
-                    conn.setInstanceFollowRedirects(false);
                     conn.setRequestMethod("HEAD");
 
                     // work around https://code.google.com/p/android/issues/detail?id=24672
@@ -169,14 +177,22 @@ public class ResolveService extends IntentService implements Consts {
                         Log.d(TAG, "Resolved " + String.valueOf(statusCode) + " for " + location);
                     }
 
+                    if(statusCode == 405) {
+
+                    }
+
                     if(statusDigit == 2) {
                         // 2xx - probably at end of redirect loop so return
+                        location = Uri.parse(conn.getURL().toString());
+                        if(DEBUG) {
+                            Log.d(TAG, "Resolved " + last + " to " + location);
+                        }
                         return location;
                     } else if(statusDigit == 3) {
                         // 3xx - fetch Location header and use that
                         location = Uri.parse(conn.getHeaderField("location"));
                         if(DEBUG) {
-                            Log.d(TAG, "Resolved " + origin + " to " + location);
+                            Log.d(TAG, "Resolved " + last + " to " + location);
                         }
                         continue;
                     } else if(statusCode == 404) {
