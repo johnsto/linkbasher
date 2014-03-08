@@ -3,6 +3,7 @@ package uk.co.johnsto.linkbasher;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 public class ResolveActivity extends Activity implements Consts {
     public final static int REQ_PICKER = 1;
@@ -25,7 +26,9 @@ public class ResolveActivity extends Activity implements Consts {
             // Bootstrap resolver
             Intent serviceIntent = new Intent(this, ResolveService.class);
             serviceIntent.setData(intent.getData());
-            serviceIntent.putExtras(intent.getExtras());
+            if(intent.getExtras() != null) {
+                serviceIntent.putExtras(intent.getExtras());
+            }
             startService(serviceIntent);
             finish();
         } else if(Intent.ACTION_PICK_ACTIVITY.equals(action)) {
